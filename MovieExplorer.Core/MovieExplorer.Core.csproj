@@ -29,6 +29,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\RequestService.cs" />
+    <Compile Include="Constants\MovieApi.cs" />
+    <Compile Include="Helpers\UrlHelper.cs" />
+    <Compile Include="Services\MovieService.cs" />
+    <Compile Include="Models\Configuration.cs" />
+    <Compile Include="Models\ImageOptions.cs" />
+    <Compile Include="Models\Movies.cs" />
+    <Compile Include="Models\Movie.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -40,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
