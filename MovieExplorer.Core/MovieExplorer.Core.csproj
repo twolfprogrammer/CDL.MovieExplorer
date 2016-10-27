@@ -39,9 +39,11 @@
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Interfaces\ISQLite.cs" />
     <Compile Include="Models\SQLite\SQLiteBaseItem.cs" />
+    <Compile Include="Models\SQLite\FavoriteMovie.cs" />
     <Compile Include="Values\SQLite.cs" />
     <Compile Include="Models\SQLite\CachedRequest.cs" />
     <Compile Include="Data\SQLiteDatabase.cs" />
+    <Compile Include="Data\FavoriteMoviesDataAccess.cs" />
     <Compile Include="Data\RequestCacheDataAccess.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +71,8 @@
     <Folder Include="Constants\" />
     <Folder Include="Helpers\" />
     <Folder Include="Models\" />
+    <Folder Include="Models\SQLite\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
