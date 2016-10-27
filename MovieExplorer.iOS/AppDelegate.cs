@@ -16,6 +16,11 @@ namespace MovieExplorer.iOS {
 			Core.RequestCacheDataAccess.Initialize(sqliteService);
 			Core.MovieService.Initialize(sqliteService);
 
+			Window = new UIWindow(UIScreen.MainScreen.Bounds);
+			var navigationController = new UINavigationController(new MovieLibraryPageViewController());
+			navigationController.SetNavigationBarHidden(hidden: true, animated: false);
+			Window.RootViewController = navigationController;
+			Window.MakeKeyAndVisible();
 			return true;
 		}
 

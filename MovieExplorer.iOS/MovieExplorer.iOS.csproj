@@ -100,6 +100,9 @@
     <Reference Include="ModernHttpClient">
       <HintPath>..\packages\modernhttpclient.2.4.2\lib\Xamarin.iOS10\ModernHttpClient.dll</HintPath>
     </Reference>
+    <Reference Include="SDWebImage">
+      <HintPath>..\packages\Xamarin.SDWebImage.3.7.5\lib\Xamarin.iOS\SDWebImage.dll</HintPath>
+    </Reference>
     <Reference Include="SQLitePCLRaw.core">
       <HintPath>..\packages\SQLitePCLRaw.core.1.0.1\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
     </Reference>
@@ -139,8 +142,14 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewControllers\MovieLibraryPageViewController.cs" />
+    <Compile Include="Views\Pages\MovieLibraryPageView.cs" />
     <Compile Include="Views\Pages\BasePageView.cs" />
     <Compile Include="ViewControllers\BasePageViewController.cs" />
+    <Compile Include="Views\MovieCollection\MovieCollectionView.cs" />
+    <Compile Include="Views\MovieCollection\MovieCollectionViewCell.cs" />
+    <Compile Include="Views\MovieCollection\MovieCollectionViewSource.cs" />
+    <Compile Include="Views\Shared\LinearCollectionViewLayout.cs" />
     <Compile Include="Views\Shared\HeaderView.cs" />
     <Compile Include="Data\SQLite.cs" />
   </ItemGroup>
