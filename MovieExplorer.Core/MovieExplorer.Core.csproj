@@ -37,7 +37,12 @@
     <Compile Include="Models\ImageOptions.cs" />
     <Compile Include="Models\Movies.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Interfaces\ISQLite.cs" />
+    <Compile Include="Models\SQLite\SQLiteBaseItem.cs" />
+    <Compile Include="Values\SQLite.cs" />
+    <Compile Include="Models\SQLite\CachedRequest.cs" />
     <Compile Include="Data\SQLiteDatabase.cs" />
+    <Compile Include="Data\RequestCacheDataAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
