@@ -45,6 +45,7 @@
     <Compile Include="Values\SQLite.cs" />
     <Compile Include="Values\Colors.cs" />
     <Compile Include="Models\SQLite\CachedRequest.cs" />
+    <Compile Include="Values\IconFont.cs" />
     <Compile Include="Values\Errors.cs" />
     <Compile Include="Values\Views\General.cs" />
     <Compile Include="Data\SQLiteDatabase.cs" />
