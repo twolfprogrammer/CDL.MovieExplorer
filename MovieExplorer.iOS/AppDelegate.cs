@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using System;
+using Foundation;
 using UIKit;
 
 namespace MovieExplorer.iOS {
@@ -11,6 +12,9 @@ namespace MovieExplorer.iOS {
 #if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
 #endif
+			var sqliteService = new SQLite();
+			Core.RequestCacheDataAccess.Initialize(sqliteService);
+			Core.MovieService.Initialize(sqliteService);
 
 			return true;
 		}

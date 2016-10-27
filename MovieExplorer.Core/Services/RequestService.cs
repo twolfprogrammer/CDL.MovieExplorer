@@ -10,14 +10,25 @@ namespace MovieExplorer.Core {
 
 		HttpClient client;
 
-		public RequestService() {
+		static RequestService instance;
+		public static RequestService Instance {
+			get {
+				return instance ?? (instance = new RequestService());
+			}
+		}
+
+		private RequestService() {
 			client = new HttpClient(new NativeMessageHandler());
 		}
 
-		public Task<T> GetObjectAsync<T>(string apiPath, Dictionary<string, string> queryParameters = null) {
+		public async Task<T> GetObjectAsync<T>(string apiPath, Dictionary<string, string> queryParameters = null) {
 			var url = GenerateRequestUrl(apiPath, queryParameters);
-			// TODO: add cache
-			return GetObjectAsync<T>(url);
+			var cachedRequest = RequestCacheDataAccess.Instance.GetCachedRequest<T>(url);
+			if (cachedRequest != null) {
+				System.Diagnostics.Debug.WriteLine($"Cached item found {typeof(T).ToString()} for: {url}");
+				return cachedRequest;
+			}
+			return await GetObjectAsync<T>(url);
 		}
 
 		string GenerateRequestUrl(string apiPath, Dictionary<string, string> queryParameters = null) {
@@ -25,11 +36,12 @@ namespace MovieExplorer.Core {
 			if (queryParameters == null) {
 				queryParameters = new Dictionary<string, string>();
 			}
-			queryParameters.Add(MovieApi.ApiKeyValueParameter.Key, MovieApi.ApiKeyValueParameter.Value);
-			return UrlHelper.AppendQuerystring(UrlHelper.AppendPath(MovieApi.BaseRequestUrl, apiPath), queryParameters);
+			queryParameters.Add(Values.MovieApi.ApiKeyValueParameter.Key, Values.MovieApi.ApiKeyValueParameter.Value);
+			return UrlHelper.AppendQuerystring(UrlHelper.AppendPath(Values.MovieApi.BaseRequestUrl, apiPath), queryParameters);
 		}
 
 		async Task<T> GetObjectAsync<T>(string url) {
+			System.Diagnostics.Debug.WriteLine($"Fetching: {url}");
 			T result = default(T);
 			if (!string.IsNullOrWhiteSpace(url)) {
 				var request = new HttpRequestMessage(HttpMethod.Get, url);
@@ -38,13 +50,12 @@ namespace MovieExplorer.Core {
 					if (response.IsSuccessStatusCode) {
 						var json = await response.Content.ReadAsStringAsync();
 						result = JsonConvert.DeserializeObject<T>(json);
+						RequestCacheDataAccess.Instance.CacheRequest<T>(url, result);
 					}
 				}
-				catch (JsonSerializationException ex) {
+				catch (Exception ex) {
 					// TODO: log exception
-				}
-				catch (HttpRequestException ex) {
-					// TODO: log exception
+					System.Diagnostics.Debug.WriteLine($"EXCEPTION: {ex.Message}\n{ex.StackTrace}");
 				}
 			}
 			return result;
