@@ -144,8 +144,11 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="ViewControllers\MovieLibraryPageViewController.cs" />
     <Compile Include="Views\Pages\MovieLibraryPageView.cs" />
+    <Compile Include="ViewControllers\MovieDetailsPageViewController.cs" />
+    <Compile Include="Views\Pages\MovieDetailsPageView.cs" />
     <Compile Include="Views\Pages\BasePageView.cs" />
     <Compile Include="ViewControllers\BasePageViewController.cs" />
+    <Compile Include="Extensions\LongExtensions.cs" />
     <Compile Include="Views\MovieCollection\MovieCollectionView.cs" />
     <Compile Include="Views\MovieCollection\MovieCollectionViewCell.cs" />
     <Compile Include="Views\MovieCollection\MovieCollectionViewSource.cs" />
