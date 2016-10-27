@@ -30,18 +30,23 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RequestService.cs" />
-    <Compile Include="Constants\MovieApi.cs" />
+    <Compile Include="Values\MovieApi.cs" />
     <Compile Include="Helpers\UrlHelper.cs" />
     <Compile Include="Services\MovieService.cs" />
     <Compile Include="Models\Configuration.cs" />
     <Compile Include="Models\ImageOptions.cs" />
     <Compile Include="Models\Movies.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Video.cs" />
+    <Compile Include="Models\Videos.cs" />
     <Compile Include="Interfaces\ISQLite.cs" />
     <Compile Include="Models\SQLite\SQLiteBaseItem.cs" />
     <Compile Include="Models\SQLite\FavoriteMovie.cs" />
     <Compile Include="Values\SQLite.cs" />
+    <Compile Include="Values\Colors.cs" />
     <Compile Include="Models\SQLite\CachedRequest.cs" />
+    <Compile Include="Values\Errors.cs" />
+    <Compile Include="Values\Views\General.cs" />
     <Compile Include="Data\SQLiteDatabase.cs" />
     <Compile Include="Data\FavoriteMoviesDataAccess.cs" />
     <Compile Include="Data\RequestCacheDataAccess.cs" />
@@ -68,10 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
-    <Folder Include="Constants\" />
+    <Folder Include="Values\" />
     <Folder Include="Helpers\" />
     <Folder Include="Models\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="Models\SQLite\" />
+    <Folder Include="Values\Views\" />
     <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MovieExplorer.Core {
+namespace MovieExplorer.Core.Values {
 	public static class MovieApi {
 		public const string BaseRequestUrl = "https://api.themoviedb.org/3/";
 		public static readonly KeyValuePair<string, string> ApiKeyValueParameter =
@@ -17,5 +17,11 @@ namespace MovieExplorer.Core {
 		public const string PopularMoviesPath = "movie/popular";
 		public const string NowPlayingMoviesPath = "movie/now_playing";
 		public const string LatestMoviesPath = "movie/latest";
+		public static string GetSimilarMoviesPath(int id) => $"movie/{id}/similar";
+		public static string GetVideosPath(int id) => $"movie/{id}/videos";
+
+
+		public static string GetVideoUrl(string key) => $"https://www.youtube.com/watch?v={key}";
+		public const string VideoType = "Trailer";
 	}
 }
