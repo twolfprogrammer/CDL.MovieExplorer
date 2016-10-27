@@ -119,9 +119,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="ViewControllers\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Pages\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Resources\Fonts\" />
+    <Folder Include="Views\MovieCollection\" />
+    <Folder Include="Views\Shared\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Views\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -131,6 +139,10 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Views\Pages\BasePageView.cs" />
+    <Compile Include="ViewControllers\BasePageViewController.cs" />
+    <Compile Include="Views\Shared\HeaderView.cs" />
+    <Compile Include="Data\SQLite.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MovieExplorer.Core\MovieExplorer.Core.csproj">
