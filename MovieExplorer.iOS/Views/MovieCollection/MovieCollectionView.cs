@@ -33,9 +33,11 @@ namespace MovieExplorer.iOS {
 		}
 
 		public void Update(List<Movie> movies) {
-			movies.RemoveAll(m => string.IsNullOrWhiteSpace(m.PosterImagePath));
+			movies?.RemoveAll(m => string.IsNullOrWhiteSpace(m.PosterImagePath));
 			viewSource.Update(movies);
-			ReloadSections(new Foundation.NSIndexSet(new nuint(0)));
+			NSOperationQueue.MainQueue.AddOperation(() => {
+				ReloadData();
+			});
 		}
 
 		void OnMovieSelected(object sender, Movie e) {
