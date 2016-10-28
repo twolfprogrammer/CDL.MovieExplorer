@@ -17,7 +17,12 @@ public class MovieCollectionViewSource : UICollectionViewSource {
 		public MovieCollectionViewSource() { }
 
 		public void Update(List<Movie> movies) {
+			if (movies == null) {
+				this.movies.Clear();
+			}
+			else {
 			this.movies.AddRange(movies);
+		}
 		}
 
 		public override nint NumberOfSections(UICollectionView collectionView) {
@@ -29,7 +34,7 @@ public class MovieCollectionViewSource : UICollectionViewSource {
 		}
 
 		public override UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath) {
-			var cell = (MovieCollectionViewCell)collectionView.DequeueReusableCell(MovieCollectionViewCell.CellId, indexPath);
+			var cell = collectionView.DequeueReusableCell(MovieCollectionViewCell.CellId, indexPath) as MovieCollectionViewCell;
 			var imageUrl = UrlHelper.AppendPath(
 				MovieService.Instance.Configuration.Images.SecureBaseUrl,
 				MovieService.Instance.Configuration.Images.PosterSizes.ElementAtOrDefault(2));

@@ -102,6 +102,15 @@ namespace MovieExplorer.iOS {
 
 		void OnRefreshRequested(object sender, EventArgs e) {
 			pageView.ShowRefreshing(true);
+			RequestCacheDataAccess.Instance.Clear();
+			topRatedMoviesPageIndex = 1;
+			popularMoviesPageIndex = 1;
+			nowPlayingMoviesPageIndex = 1;
+			upcomingMoviesPageIndex = 1;
+			pageView.UpdateMovies(MovieService.CollectionType.TopRated, movies: null);
+			pageView.UpdateMovies(MovieService.CollectionType.Popular, movies: null);
+			pageView.UpdateMovies(MovieService.CollectionType.NowPlaying, movies: null);
+			pageView.UpdateMovies(MovieService.CollectionType.Upcoming, movies: null);
 			SetupAsync().ContinueWith((task) => {
 				InvokeOnMainThread(() => {
 					pageView.ShowRefreshing(false);

@@ -134,7 +134,6 @@ namespace MovieExplorer.iOS {
 		}
 
 		public void UpdateMovies(MovieService.CollectionType collectionType, List<Movie> movies) {
-			if (movies != null && movies.Count <= 0 && popularMoviesCollection == null) { return; }
 			if (collectionType == MovieService.CollectionType.TopRated) {
 				topRatedMoviesCollection.Update(movies);
 			}
