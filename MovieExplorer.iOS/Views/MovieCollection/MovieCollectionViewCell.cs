@@ -1,6 +1,7 @@
 ﻿using System;
 using CoreGraphics;
 using Foundation;
+using MovieExplorer.Core.Values;
 using UIKit;
 
 namespace MovieExplorer.iOS {
@@ -12,9 +13,9 @@ namespace MovieExplorer.iOS {
 
 		[Export("initWithFrame:")]
 		public MovieCollectionViewCell(CGRect frame) : base(frame) {
-			ContentView.Layer.BorderColor = UIColor.White.CGColor;
-			ContentView.Layer.BorderWidth = 2.0f;
-			ContentView.BackgroundColor = UIColor.White;
+			ContentView.Layer.BorderColor = Colors.White.AsUIColor().CGColor;
+			ContentView.Layer.BorderWidth = 2f;
+			ContentView.BackgroundColor = Colors.White.AsUIColor();
 			ImageView = new UIImageView();
 			ContentView.AddSubview(ImageView);
 		}

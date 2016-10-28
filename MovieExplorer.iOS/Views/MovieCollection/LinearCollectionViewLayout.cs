@@ -6,7 +6,7 @@ using UIKit;
 namespace MovieExplorer.iOS {
 public class LinearCollectionViewLayout : UICollectionViewFlowLayout {
 		public LinearCollectionViewLayout() {
-			ItemSize = new CGSize(110, 180);
+			ItemSize = new CGSize(112f, 168f);
 			ScrollDirection = UICollectionViewScrollDirection.Horizontal;
 		}
 

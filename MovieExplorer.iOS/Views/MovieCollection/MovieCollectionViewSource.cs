@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Foundation;
 using MovieExplorer.Core;
+using MovieExplorer.Core.Values;
 using SDWebImage;
 using UIKit;
 
@@ -21,8 +22,8 @@ public class MovieCollectionViewSource : UICollectionViewSource {
 				this.movies.Clear();
 			}
 			else {
-			this.movies.AddRange(movies);
-		}
+				this.movies.AddRange(movies);
+			}
 		}
 
 		public override nint NumberOfSections(UICollectionView collectionView) {
@@ -40,7 +41,7 @@ public class MovieCollectionViewSource : UICollectionViewSource {
 				MovieService.Instance.Configuration.Images.PosterSizes.ElementAtOrDefault(2));
 			imageUrl = UrlHelper.AppendPath(imageUrl, movies[indexPath.Row].PosterImagePath);
 			cell.ImageView.SetImage(new NSUrl(imageUrl), placeholder: null,
-				options: (SDWebImageOptions.ProgressiveDownload | SDWebImageOptions.RetryFailed));
+			                        options: (SDWebImageOptions.ProgressiveDownload | SDWebImageOptions.RetryFailed));
 			return cell;
 		}
 
@@ -51,7 +52,7 @@ public class MovieCollectionViewSource : UICollectionViewSource {
 
 		public override void ItemUnhighlighted(UICollectionView collectionView, NSIndexPath indexPath) {
 			var cell = collectionView.CellForItem(indexPath);
-			cell.ContentView.Layer.BorderColor = UIColor.White.CGColor;
+			cell.ContentView.Layer.BorderColor = Colors.White.AsUIColor().CGColor;
 		}
 
 		public override bool ShouldHighlightItem(UICollectionView collectionView, NSIndexPath indexPath) {

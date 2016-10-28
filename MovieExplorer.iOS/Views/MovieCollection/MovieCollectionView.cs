@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CoreGraphics;
+using Foundation;
 using MovieExplorer.Core;
 using UIKit;
 
@@ -17,7 +18,7 @@ namespace MovieExplorer.iOS {
 		}
 
 		public MovieCollectionView(CGRect frame, UICollectionViewLayout layout) : base(frame, layout) {
-			BackgroundColor = UIColor.Green;
+			BackgroundColor = UIColor.Clear;
 			RegisterClassForCell(typeof(MovieCollectionViewCell), MovieCollectionViewCell.CellId);
 			Source = new MovieCollectionViewSource();
 			ShowsVerticalScrollIndicator = false;

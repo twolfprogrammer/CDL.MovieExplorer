@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieExplorer.iOS.UITests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieExplorer.Core.UnitTests", "MovieExplorer.Core.UnitTests\MovieExplorer.Core.UnitTests.csproj", "{B27B9315-F9AD-45CB-8F55-21E3657E9AC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieExplorer.iOS.UnitTests", "MovieExplorer.iOS.UnitTests\MovieExplorer.iOS.UnitTests.csproj", "{B174FA26-C9B4-4EC1-A008-64077B4C6702}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -69,17 +67,5 @@ Global
 		{B27B9315-F9AD-45CB-8F55-21E3657E9AC1}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{B27B9315-F9AD-45CB-8F55-21E3657E9AC1}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{B27B9315-F9AD-45CB-8F55-21E3657E9AC1}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{B174FA26-C9B4-4EC1-A008-64077B4C6702}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B174FA26-C9B4-4EC1-A008-64077B4C6702}.Debug|x86.Build.0 = Debug|Any CPU
-		{B174FA26-C9B4-4EC1-A008-64077B4C6702}.Release|x86.ActiveCfg = Release|Any CPU
-		{B174FA26-C9B4-4EC1-A008-64077B4C6702}.Release|x86.Build.0 = Release|Any CPU
-		{B174FA26-C9B4-4EC1-A008-64077B4C6702}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{B174FA26-C9B4-4EC1-A008-64077B4C6702}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{B174FA26-C9B4-4EC1-A008-64077B4C6702}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{B174FA26-C9B4-4EC1-A008-64077B4C6702}.Release|iPhone.Build.0 = Release|Any CPU
-		{B174FA26-C9B4-4EC1-A008-64077B4C6702}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{B174FA26-C9B4-4EC1-A008-64077B4C6702}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{B174FA26-C9B4-4EC1-A008-64077B4C6702}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{B174FA26-C9B4-4EC1-A008-64077B4C6702}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

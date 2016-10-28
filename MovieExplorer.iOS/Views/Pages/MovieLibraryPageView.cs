@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using CoreGraphics;
 using MovieExplorer.Core;
+using MovieExplorer.Core.Values;
 using UIKit;
 
 namespace MovieExplorer.iOS {
@@ -24,21 +25,21 @@ namespace MovieExplorer.iOS {
 		UILabel upcomingMoviesLabel;
 
 		public MovieLibraryPageView() {
-			BackgroundColor = UIColor.Magenta;
-
 			scrollView = new UIScrollView() {
-				BackgroundColor = UIColor.Orange
+				BackgroundColor = UIColor.Clear,
+				ShowsVerticalScrollIndicator = false,
 			};
 			ContentView.AddSubview(scrollView);
 
-			refreshControl = new UIRefreshControl();
+			refreshControl = new UIRefreshControl() {
+				TintColor = Colors.Gold.AsUIColor(),
+			};
 			scrollView.Add(refreshControl);
 
 			topRatedMoviesLabel = new UILabel() {
 				Text = Core.Values.Views.MovieLibraryPageView.TopRatedCollectionTitle,
-				TextColor = UIColor.Black,
-				BackgroundColor = UIColor.Blue,
-				Font = UIFont.FromName(Core.Values.Views.General.iOSDefaultFont, 20f),
+				TextColor = Colors.White.AsUIColor(),
+				Font = UIFont.FromName(Core.Values.Views.General.HelveticaFontBold, 16f),
 			};
 			scrollView.Add(topRatedMoviesLabel);
 
@@ -49,9 +50,8 @@ namespace MovieExplorer.iOS {
 
 			popularMoviesLabel = new UILabel() {
 				Text = Core.Values.Views.MovieLibraryPageView.PopularCollectionTitle,
-				TextColor = UIColor.Black,
-				BackgroundColor = UIColor.Blue,
-				Font = UIFont.FromName(Core.Values.Views.General.iOSDefaultFont, 20f),
+				TextColor = Colors.White.AsUIColor(),
+				Font = UIFont.FromName(Core.Values.Views.General.HelveticaFontBold, 16f),
 			};
 			scrollView.Add(popularMoviesLabel);
 
@@ -62,9 +62,8 @@ namespace MovieExplorer.iOS {
 
 			nowPlayingMoviesLabel = new UILabel() {
 				Text = Core.Values.Views.MovieLibraryPageView.NowPlayingCollectionTitle,
-				TextColor = UIColor.Black,
-				BackgroundColor = UIColor.Blue,
-				Font = UIFont.FromName(Core.Values.Views.General.iOSDefaultFont, 20f),
+				TextColor = Colors.White.AsUIColor(),
+				Font = UIFont.FromName(Core.Values.Views.General.HelveticaFontBold, 16f),
 			};
 			scrollView.Add(nowPlayingMoviesLabel);
 
@@ -75,9 +74,8 @@ namespace MovieExplorer.iOS {
 
 			upcomingMoviesLabel = new UILabel() {
 				Text = Core.Values.Views.MovieLibraryPageView.UpcomingCollectionTitle,
-				TextColor = UIColor.Black,
-				BackgroundColor = UIColor.Blue,
-				Font = UIFont.FromName(Core.Values.Views.General.iOSDefaultFont, 20f),
+				TextColor = Colors.White.AsUIColor(),
+				Font = UIFont.FromName(Core.Values.Views.General.HelveticaFontBold, 16f),
 			};
 			scrollView.Add(upcomingMoviesLabel);
 
@@ -112,16 +110,18 @@ namespace MovieExplorer.iOS {
 
 		public override void LayoutSubviews() {
 			base.LayoutSubviews();
-			scrollView.Frame = new CGRect(0f, 0f, ContentView.Frame.Width, ContentView.Frame.Height);
-			topRatedMoviesLabel.Frame = new CGRect(0, 0, scrollView.Frame.Width, 45f);
-			topRatedMoviesCollection.Frame = new CGRect(0, topRatedMoviesLabel.Frame.Bottom, scrollView.Frame.Width, 200);
-			popularMoviesLabel.Frame = new CGRect(0, topRatedMoviesCollection.Frame.Bottom, scrollView.Frame.Width, 45f);
-			popularMoviesCollection.Frame = new CGRect(0, popularMoviesLabel.Frame.Bottom, scrollView.Frame.Width, 200);
-			nowPlayingMoviesLabel.Frame = new CGRect(0, popularMoviesCollection.Frame.Bottom, scrollView.Frame.Width, 45f);
-			nowPlayingMoviesCollection.Frame = new CGRect(0, nowPlayingMoviesLabel.Frame.Bottom + 5f, scrollView.Frame.Width, 200);
-			upcomingMoviesLabel.Frame = new CGRect(0, nowPlayingMoviesCollection.Frame.Bottom, scrollView.Frame.Width, 45f);
-			upcomingMoviesCollection.Frame = new CGRect(0, upcomingMoviesLabel.Frame.Bottom + 5f, scrollView.Frame.Width, 200);
-			scrollView.ContentSize = new CGSize(ContentView.Frame.Width, upcomingMoviesCollection.Frame.Bottom);
+			var margin = Core.Values.Views.General.DefaultMargin;
+
+			scrollView.Frame = new CGRect(margin, 0f, ContentView.Frame.Width - (margin * 2), ContentView.Frame.Height);
+			topRatedMoviesLabel.Frame = new CGRect(0f, Core.Values.Views.General.DefaultMargin, scrollView.Frame.Width, 20f);
+			topRatedMoviesCollection.Frame = new CGRect(0f, topRatedMoviesLabel.Frame.Bottom, scrollView.Frame.Width, 180f);
+			popularMoviesLabel.Frame = new CGRect(0f, topRatedMoviesCollection.Frame.Bottom + margin, scrollView.Frame.Width, 20f);
+			popularMoviesCollection.Frame = new CGRect(0f, popularMoviesLabel.Frame.Bottom, scrollView.Frame.Width, 180f);
+			nowPlayingMoviesLabel.Frame = new CGRect(0f, popularMoviesCollection.Frame.Bottom + margin, scrollView.Frame.Width, 20f);
+			nowPlayingMoviesCollection.Frame = new CGRect(0f, nowPlayingMoviesLabel.Frame.Bottom, scrollView.Frame.Width, 180f);
+			upcomingMoviesLabel.Frame = new CGRect(0f, nowPlayingMoviesCollection.Frame.Bottom + margin, scrollView.Frame.Width, 20f);
+			upcomingMoviesCollection.Frame = new CGRect(0f, upcomingMoviesLabel.Frame.Bottom, scrollView.Frame.Width, 180f);
+			scrollView.ContentSize = new CGSize(scrollView.Frame.Width, upcomingMoviesCollection.Frame.Bottom);
 		}
 
 		public void ShowRefreshing(bool value) {

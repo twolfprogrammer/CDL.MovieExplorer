@@ -1,5 +1,6 @@
 ﻿using System;
 using CoreGraphics;
+using MovieExplorer.Core.Values;
 using UIKit;
 
 namespace MovieExplorer.iOS {
@@ -24,23 +25,22 @@ namespace MovieExplorer.iOS {
 		}
 
 		public HeaderView() {
-			BackgroundColor = UIColor.LightGray;
+			BackgroundColor = Colors.GrayDark.AsUIColor();
 			titleLabel = new UILabel {
 				Text = Core.Values.Views.General.HeaderTitle,
-				TextColor = UIColor.Black,
-				BackgroundColor = UIColor.DarkGray,
+				TextColor = Colors.GoldDark.AsUIColor(),
 				TextAlignment = UITextAlignment.Center,
-				Font = UIFont.FromName(Core.Values.Views.General.iOSDefaultFont, 20f),
+				Font = UIFont.FromName(Core.Values.Views.General.HelveticaFontBold, 18f),
 			};
 			AddSubview(titleLabel);
 
 			backButton = new UIButton {
 				BackgroundColor = UIColor.Clear,
-				Font = UIFont.FromName(Core.Values.IconFont.Name, 25),
+				Font = UIFont.FromName(IconFont.Name, 25f),
 			};
-			backButton.SetTitle(Core.Values.IconFont.IconClose, UIControlState.Normal);
-			backButton.SetTitleColor(UIColor.White, UIControlState.Normal);
-			backButton.SetTitleColor(UIColor.Gray, UIControlState.Highlighted);
+			backButton.SetTitle(IconFont.IconClose, UIControlState.Normal);
+			backButton.SetTitleColor(Colors.White.AsUIColor(), UIControlState.Normal);
+			backButton.SetTitleColor(Colors.Gray.AsUIColor(), UIControlState.Highlighted);
 			backButton.Hidden = !showBackButton;
 			AddSubview(backButton);
 

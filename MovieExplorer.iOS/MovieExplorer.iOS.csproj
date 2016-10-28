@@ -157,9 +157,9 @@
     <Compile Include="Views\MovieCollection\MovieCollectionView.cs" />
     <Compile Include="Views\MovieCollection\MovieCollectionViewCell.cs" />
     <Compile Include="Views\MovieCollection\MovieCollectionViewSource.cs" />
-    <Compile Include="Views\Shared\LinearCollectionViewLayout.cs" />
     <Compile Include="Views\Shared\HeaderView.cs" />
     <Compile Include="Data\SQLite.cs" />
+    <Compile Include="Views\MovieCollection\LinearCollectionViewLayout.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MovieExplorer.Core\MovieExplorer.Core.csproj">

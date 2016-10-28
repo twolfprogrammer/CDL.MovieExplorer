@@ -1,6 +1,7 @@
 ﻿using System;
 using CoreGraphics;
 using Foundation;
+using MovieExplorer.Core.Values;
 using UIKit;
 
 namespace MovieExplorer.iOS {
@@ -21,11 +22,12 @@ namespace MovieExplorer.iOS {
 		}
 
 		public BasePageView() {
+			BackgroundColor = Colors.Gray.AsUIColor();
 			HeaderView = new HeaderView();
 			AddSubview(HeaderView);
 
 			ContentView = new UIView {
-				BackgroundColor = UIColor.Magenta,
+				BackgroundColor = UIColor.Clear,
 			};
 			AddSubview(ContentView);
 
@@ -39,8 +41,10 @@ namespace MovieExplorer.iOS {
 
 		public override void LayoutSubviews() {
 			base.LayoutSubviews();
-			HeaderView.Frame = new CGRect(0, 0, Frame.Width, 60f);
-			ContentView.Frame = new CGRect(5f, HeaderView.Frame.Bottom, Frame.Width - 10f, Frame.Height - HeaderView.Frame.Height);
+			HeaderView.Frame = new CGRect(0f, 0f, Frame.Width, 45f);
+			ContentView.Frame = new CGRect(
+				0f, HeaderView.Frame.Bottom,Frame.Width,
+				Frame.Height - HeaderView.Frame.Height);
 		}
 
 		void OnBackButtonClicked(object sender, EventArgs e) {
