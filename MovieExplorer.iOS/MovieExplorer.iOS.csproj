@@ -119,6 +119,11 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-167.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
