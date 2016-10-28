@@ -5,5 +5,6 @@ namespace MovieExplorer.Core.Values.Views {
 		public const string PopularCollectionTitle = "Popular";
 		public const string NowPlayingCollectionTitle = "Now Playing";
 		public const string UpcomingCollectionTitle = "Upcoming";
+		public const string SimilarCollectionTitle = "Similar Movies";
 	}
 }

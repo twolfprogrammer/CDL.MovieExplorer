@@ -13,7 +13,7 @@ namespace MovieExplorer.Core.Values.Views {
 		}
 		public static string GetVoteCount(int count) => $"(from {count} votes)";
 		public const string PlayVideo = "Play Video";
-		public const string AddToFavorites = "Add to Favorites";
+		public const string SaveToFavorites = "Save to Favorites";
 		public const string RemoveFromFavorites = "Remove from Favorites";
 	}
 }
